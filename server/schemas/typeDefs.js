@@ -21,6 +21,26 @@ token: ID!
 user: User
 }
 
+input SaveBookInput {
+authors: [String],
+description: String!,
+title: String!,
+bookId: String!,
+image: String,
+link: String
+}
+
+# GET routes
+type Query {
+me: [User]
+}
+
+# POST, UPDATE, DELETE routes 
+type Mutation {
+login(email: String! password: String!): Auth,
+addUser(username: String! email: String! password: String!): Auth,
+saveBook(input: SaveBookInput!): User 
+}
 `;
 
 module.exports = typeDefs;
