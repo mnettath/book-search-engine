@@ -1,9 +1,9 @@
-const { GraphQLError } = require('graphql');
-const jwt = require('jsonwebtoken');
+const { GraphQLError } = require("graphql");
+const jwt = require("jsonwebtoken");
 
 // set token secret and expiration date
-const secret = 'mysecretsshhhhh';
-const expiration = '2h';
+const secret = "mysecretsshhhhh";
+const expiration = "2h";
 
 module.exports = {
   // function for our authenticated routes
@@ -37,6 +37,33 @@ module.exports = {
       code: "UNAUTHENTICATED",
     },
   }),
+  authMiddleware: function ({ req }) {
+    let token = req.body.token || req.query.token || req.headers.authorization;
+
+    ["Bearer", "<tokenvalue>"];
+    if (req.headers.authorization) {
+      console.log(token);
+      token = token.split(" ").pop().trim();
+      console.log(token);
+    }
+
+    if (!token) {
+      console.log("No token provided");
+      return req;
+    }
+
+    try {
+      const { data } = jwt.verify(token, secret, { maxAge: expiration });
+      console.log("Token verified:", data);
+      req.user = data;
+    } catch (error) {
+      console.error("Invalid token:", error);
+      // If there's an invalid token, you may want to throw an error here, but it depends on your error handling strategy.
+    }
+
+    return req;
+  },
+
   signToken: function ({ username, email, _id }) {
     const payload = { username, email, _id };
 
