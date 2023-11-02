@@ -22,7 +22,7 @@ const SavedBooks = () => {
     return <h2>Something went wrong!</h2>;
   }
 
-  const userData = data?.me || {};
+  const [userData, setUserData] = useState(data?.me || {});
   // create function that accepts the book's mongo _id value as param and deletes the book from the database
   const handleDeleteBook = async (bookId) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
@@ -36,9 +36,9 @@ const SavedBooks = () => {
         variables: { bookId: bookId },
       });
 
-      if (!response.ok) {
-        throw new Error("something went wrong!");
-      }
+      // if (!response.ok) {
+      //   throw new Error("something went wrong!");
+      // }
 
       setUserData(data.removeBook);
       // upon success, remove book's id from localStorage
