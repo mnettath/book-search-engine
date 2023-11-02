@@ -32,7 +32,7 @@ link: String
 
 # GET routes
 type Query {
-me: [User]
+me: User
 }
 
 # POST, UPDATE, DELETE routes 
