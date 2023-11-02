@@ -32,15 +32,15 @@ module.exports = {
   //   // send to next endpoint
   //   next();
   // },
-  AuthenticationError: new GraphQLError("Could not authenticate user.", {
-    extensions: {
-      code: "UNAUTHENTICATED",
-    },
-  }),
+  // AuthenticationError: new GraphQLError("Could not authenticate user.", {
+  //   extensions: {
+  //     code: "UNAUTHENTICATED",
+  //   },
+  // }),
   authMiddleware: function ({ req }) {
     let token = req.body.token || req.query.token || req.headers.authorization;
 
-    ["Bearer", "<tokenvalue>"];
+    // ["Bearer", "<tokenvalue>"];
     if (req.headers.authorization) {
       console.log(token);
       token = token.split(" ").pop().trim();
@@ -48,7 +48,7 @@ module.exports = {
     }
 
     if (!token) {
-      console.log("No token provided");
+      // console.log("No token provided");
       return req;
     }
 
