@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@apollo/react-hooks": "^4.0.0",
-    "apollo-server-express": "^3.12.1"
+    "apollo-server-express": "^3.12.1",
+    "path": "^0.12.7"
   }
 }
