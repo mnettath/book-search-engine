@@ -12,11 +12,9 @@ N/A
 
 The user will first be presented with the homepage where they can search for books. Once they type in a name of a book in the search bar and click "Submit Search", they will be shown information about that book. If the user wishes to save books, they must either login or sign up. To sign up, the user will be required to enter a username, email, and password. Once signed in, they should see an additional tab for Saved Books. When the user is logged in and searching for books, they can access a button where they can save books to their list. To view their saved selections, they can click on the Saved Books tab. The user will also see the logout tab, when they are ready to logout.  
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative file path, add it to your README using the following syntax:
+![Book Search Website Screenshot](./server/assets/images/bookSearchWebsite.png)
 
-![alt text](assets/images/screenshot.png)
-
-Link to deployed app: 
+Link to deployed app: https://book-search-maya-1f14b0d99427.herokuapp.com/
 
 ## Credits
 
