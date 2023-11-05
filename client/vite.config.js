@@ -17,6 +17,9 @@ export default defineConfig({
   },
   build: {
     outDir: "./build",
-    emptyOutDir: true
+    emptyOutDir: true,
+    rollupOptions: {
+      input: "client/src/main.jsx",
+    },
   },
 });
