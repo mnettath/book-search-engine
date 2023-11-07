@@ -25,10 +25,10 @@ async function startServer() {
   app.use("/graphql", expressMiddleware(server, { context: authMiddleware }));
 
   if (process.env.NODE_ENV === "production") {
-    app.use(express.static(path.join(__dirname, "../client/build")));
+    app.use(express.static(path.join(__dirname, "../client/dist")));
     // * - can directly navigate to pages that arent the home page without an error
     app.get("*", (req, res) => {
-      res.sendFile(path.join(__dirname, "../client/build/index.html"));
+      res.sendFile(path.join(__dirname, "../client/dist/index.html"));
     });
   }
 
